@@ -1,8 +1,7 @@
-import typing
 import sys
 import re
 
-def get_input_data() -> typing.List[int]:
+def get_input_data():
     p = re.compile(r"(?P<min>\d*)-(?P<max>\d*) (?P<char>.): (?P<pw>.*)")
     with open("inputs/day02.txt", "r") as fp:
         return [match.groupdict()
