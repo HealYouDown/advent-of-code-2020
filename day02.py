@@ -10,7 +10,7 @@ def get_input_data():
 
 def puzzle_1():
     data = get_input_data()
-    wrong_passwords = 0
+    valid_passwords = 0
 
     for line in data:
         count = line["pw"].count(line["char"])
@@ -18,9 +18,9 @@ def puzzle_1():
         max_ = int(line["max"])
 
         if count >= min_ and count <= max_:
-            wrong_passwords += 1
+            valid_passwords += 1
 
-    return wrong_passwords
+    return valid_passwords
 
 def puzzle_2():
     data = get_input_data()
