@@ -1,5 +1,5 @@
 import typing
-import sys
+
 
 def get_input_data() -> typing.List[int]:
     with open("inputs/day01.txt", "r") as fp:
