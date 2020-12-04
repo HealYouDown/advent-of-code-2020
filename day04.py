@@ -1,4 +1,4 @@
-import math
+import re
 
 
 def get_input_data():
@@ -17,7 +17,7 @@ def get_input_data():
                 if split:
                     key, value = split.split(":")
                     passport_as_dict[key] = value
-                
+
             passports_as_dicts.append(passport_as_dict)
 
     return passports_as_dicts
@@ -26,7 +26,7 @@ def get_input_data():
 def puzzle_1():
     data = get_input_data()
     needed_keys = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
-    
+
     valid_count = 0
     for passport in data:
         if all(key in passport for key in needed_keys):
@@ -49,47 +49,38 @@ def puzzle_2():
             if key == "byr":
                 if not (int(value) >= 1920 and int(value) <= 2002):
                     break
-            
+
             elif key == "iyr":
                 if not (int(value) >= 2010 and int(value) <= 2020):
                     break
 
             elif key == "eyr":
-                if not (int(value) >= 2020 and int(value) < 2030):
+                if not (int(value) >= 2020 and int(value) <= 2030):
                     break
 
             elif key == "hgt":
-                height = value[:-2]
-                unit = value[-2:]
-                if not unit in ["in", "cm"]:
+                if not re.match(r"(\d*)(cm|in)$", value):
                     break
 
-                try:
-                    int(height)
-                except ValueError:
+                unit = value[-2:]
+                height = int(value[:-2])
+
+                if unit == "cm" and not (height >= 150 and height <= 193):
+                    break
+                elif unit == "in" and not (height >= 59 and height <= 76):
                     break
 
             elif key == "hcl":
-                if len(value) != 7:
+                if not re.match(r"#[a-f0-9]{6}$", value):
                     break
-
-                if value[0] != "#":
-                    break
-
-                color = value[1:]
-                # TODO: Regex
 
             elif key == "ecl":
-                if not value in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]:
+                if value not in ["amb", "blu", "brn",
+                                 "gry", "grn", "hzl", "oth"]:
                     break
 
             elif key == "pid":
-                if len(value) != 9:
-                    break
-
-                try:
-                    int(value)
-                except ValueError:
+                if not re.match(r"\A[0-9]{9}$", value):
                     break
 
         else:
