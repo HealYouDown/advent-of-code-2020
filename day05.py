@@ -1,4 +1,5 @@
 import typing
+from utils import timer
 
 
 def get_input_data():
@@ -43,16 +44,16 @@ def get_seat_ids() -> typing.List[int]:
     return seat_ids
 
 
+@timer
 def puzzle_1():
     return max(get_seat_ids())
 
 
+@timer
 def puzzle_2():
     seat_ids = sorted(get_seat_ids())
 
-    for i in range(seat_ids[0], seat_ids[-1]+1):
-        if i not in seat_ids:
-            return i
+    return set(range(seat_ids[0], seat_ids[-1]+1)).difference(set(seat_ids))
 
 
 if __name__ == "__main__":
