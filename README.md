@@ -3,7 +3,7 @@ My take at the Advent of Code 2020 puzzles.
 > Solutions are unoptimized and weren't changed (except a few embarassing variable names) after I got the puzzle right.
 
 ## Time
-Time for each puzzle to run (+ input parsing) in **ms**.
+Time for each puzzle to run (+ input parsing) in **milliseconds**.
 
 |Day|Puzzle 1|Puzzle 2|
 |--|--:|--:|
