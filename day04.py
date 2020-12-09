@@ -1,4 +1,5 @@
 import re
+from utils import timer
 
 
 def get_input_data():
@@ -23,6 +24,7 @@ def get_input_data():
     return passports_as_dicts
 
 
+@timer
 def puzzle_1():
     data = get_input_data()
     needed_keys = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
@@ -35,6 +37,7 @@ def puzzle_1():
     return valid_count
 
 
+@timer
 def puzzle_2():
     data = get_input_data()
     needed_keys = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]

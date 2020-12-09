@@ -6,6 +6,6 @@ def timer(func: Callable):
     def wrapper(*args, **kwargs):
         start = default_timer()
         res = func(*args, **kwargs)
-        print((f"{func.__name__}: {default_timer()-start}"))
+        print((f"{func.__name__}: {(default_timer()-start)*1000}"))
         return res
     return wrapper

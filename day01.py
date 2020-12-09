@@ -1,4 +1,5 @@
 import typing
+from utils import timer
 
 
 def get_input_data() -> typing.List[int]:
@@ -6,6 +7,7 @@ def get_input_data() -> typing.List[int]:
         return [int(line) for line in fp.readlines() if line]
 
 
+@timer
 def puzzle_1():
     data = get_input_data()
 
@@ -15,6 +17,7 @@ def puzzle_1():
                 return number * number2
 
 
+@timer
 def puzzle_2():
     data = get_input_data()
 

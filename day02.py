@@ -1,4 +1,5 @@
 import re
+from utils import timer
 
 
 def get_input_data():
@@ -8,6 +9,7 @@ def get_input_data():
                 for match in re.finditer(p, fp.read())]
 
 
+@timer
 def puzzle_1():
     data = get_input_data()
     valid_passwords = 0
@@ -23,6 +25,7 @@ def puzzle_1():
     return valid_passwords
 
 
+@timer
 def puzzle_2():
     data = get_input_data()
     valid_passwords = 0

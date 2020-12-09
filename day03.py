@@ -1,4 +1,5 @@
 import math
+from utils import timer
 
 
 def get_input_data():
@@ -17,6 +18,7 @@ def get_input_data():
     return extended_rows
 
 
+@timer
 def puzzle_1(field):
     visited_fields = []
 
@@ -32,6 +34,7 @@ def puzzle_1(field):
     return visited_fields.count("#")
 
 
+@timer
 def puzzle_2(field):
     slopes = [
         (1, 1),
