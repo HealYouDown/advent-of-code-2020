@@ -17,3 +17,4 @@ Time for each puzzle to run (+ input parsing) in **milliseconds**.
 |08|7.7474|35.4096|
 |09|25.0559|160.6916|
 |10|0.1232|/|
+|11|2842.1703|/|
